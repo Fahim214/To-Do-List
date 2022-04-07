@@ -25,7 +25,7 @@ const Home = () => {
     <div>
       <Container style={{ width: 800, margin: "80px auto" }}>
         <Row>
-          <h2 className="text-center">Agenda Kelurahan Jatirejo</h2>
+          <h2 className="text-center">Agenda Bulanan Kelurahan Jatirejo</h2>
           <div className="my-4">
             <input
               className="p-2"
