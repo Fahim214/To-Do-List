@@ -15,3 +15,8 @@ code {
 .btn:hover{
   color: white;
 }
+
+.navv{
+  background-color: blue;
+  transition: .8s;
+}
