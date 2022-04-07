@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Agenda from "../Data/Data.js";
+// import Agenda from "../Data/Data.js";
 
 const Home = () => {
   const [search, setSearch] = useState("");
+  const [data, setData] = useState([]);
+
+  const getData = async () => {
+    try {
+      let respon = await axios.get("http://localhost:3001/agenda");
+      setData(respon.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <div>
@@ -30,20 +45,20 @@ const Home = () => {
                 </tr>
               </thead>
               <tbody>
-                {Agenda.filter((agend) =>
-                  agend.bulan.toLowerCase().includes(search)
-                ).map((agend, index) => (
-                  <tr key={index}>
-                    <td>{agend.id}</td>
-                    <td>{agend.agenda}</td>
-                    <td>{agend.bulan}</td>
-                    <div>
-                      <Link to={`/${agend.id}`} className="btn btn-light m-1">
-                        Detail
-                      </Link>
-                    </div>
-                  </tr>
-                ))}
+                {data
+                  .filter((dat) => dat.bulan.toLowerCase().includes(search))
+                  .map((dat, index) => (
+                    <tr key={index}>
+                      <td>{dat.id}</td>
+                      <td>{dat.agenda}</td>
+                      <td>{dat.bulan}</td>
+                      <div>
+                        <Link to={`/${dat.id}`} className="btn btn-light m-1">
+                          Detail
+                        </Link>
+                      </div>
+                    </tr>
+                  ))}
               </tbody>
             </Table>
           </Col>
