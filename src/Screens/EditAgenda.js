@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 
@@ -13,51 +13,24 @@ const AddAgenda = () => {
 
   let navigate = useNavigate()
 
-  const handleSubmit =  (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    
+    try {
       let dataAgenda = { agenda, bulan, detail, image}
 
-      if(id) {
-        updateAgenda(dataAgenda)
-      } else {
-        createAgenda(dataAgenda)
-      }
-    }
-
-  const updateAgenda = (dataAgenda) => {
-    axios.put(`http://localhost:3001/agenda/${id}`, dataAgenda)
-    .then((res) => {
-      console.log(res);
+      let res = await axios.put(`http://localhost:3001/agenda/${id}`, dataAgenda)
+      console.log(res.data);
       navigate("/")
-    })
-  }
-
-  const createAgenda = (dataAgenda) => {
-    axios.post("http://localhost:3001/agenda", dataAgenda).then((res) => {
-      console.log(res);
-      navigate("/")
-    })
-  }
-
-  useEffect(() => {
-    if(id) {
-      axios.get(`http://localhost:3001/agenda/${id}`).then((res) => {
-        const { data } = res;
-        setAgenda(data.agenda)
-        setBulan(data.bulan)
-        setDetail(data.detail)
-        setImage(data.image)
-      })
+    } catch (error) {
+      console.log(error)
     }
-  }, [id])
-
+  };
   return (
     <div>
       <Container style={{ width: 500, margin: "80px auto" }}>
         <Row>
-          <h3>{ id ? "Update Agenda" : "Tambah Agenda"}</h3>
+          <h3>Edit Agenda</h3>
           <Col>
             <Form onSubmit={handleSubmit}>
               <Form.Group
@@ -70,7 +43,7 @@ const AddAgenda = () => {
                 className="mb-3"
                 controlId="exampleForm.ControlInput1">
                 <Form.Label>Date</Form.Label>
-                <Form.Control type="text" placeholder="Nama Agenda" value={bulan} onChange={(e) => setBulan(e.target.value)}/>
+                <Form.Control type="month" placeholder="Nama Agenda" value={bulan} onChange={(e) => setBulan(e.target.value)}/>
               </Form.Group>
               <Form.Group
                 className="mb-3"
@@ -84,7 +57,7 @@ const AddAgenda = () => {
                 <Form.Label>URL image</Form.Label>
                 <Form.Control type="text" placeholder="Insert Url Image . . ." value={image} onChange={(e) => setImage(e.target.value)}/>
               </Form.Group>
-              <Button type="submit">Submit</Button>
+              <Button type="submit">Add</Button>
             </Form>
           </Col>
         </Row>

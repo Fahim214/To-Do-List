@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
-import Agenda from "../Data/Data"
+// import Agenda from "../Data/Data"
 import { Link, useParams } from "react-router-dom"
 import axios from "axios";
 
@@ -49,7 +49,9 @@ const Detail = () => {
                 <Card.Text>
                   {data.detail}
                 </Card.Text>
+                <Link to={`/edit/${data.id}`}>
                 <Button style={{ marginRight: 20}} variant="primary">Edit</Button>
+                </Link>
                 <Button variant="danger" onClick={() => handleDelete(data.id)}>Delete</Button>
               </Card.Body>
             </Card>

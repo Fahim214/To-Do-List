@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 
 const NavbarComp = () => {
   const [navbar, setNavbar] = useState(false);
@@ -17,21 +18,27 @@ const NavbarComp = () => {
   const changeBackground = () => {
     if (window.scrollY >= 50) {
       setNavbar(true);
-    } else{
-        setNavbar(false)
+    } else {
+      setNavbar(false);
     }
   };
 
-  window.addEventListener("scroll", changeBackground)
+  window.addEventListener("scroll", changeBackground);
 
   return (
     <div>
       <Container fluid>
         <Row>
           <Col>
-            <Navbar fixed="top" expand="lg" className={ navbar ? 'navv text-white' : 'bg-transparent'}>
+            <Navbar
+              fixed="top"
+              expand="lg"
+              className={navbar ? "navv text-white" : "bg-transparent"}
+            >
               <Container>
-                <NavbarBrand>To-Do List</NavbarBrand>
+                <Link to="/" style={{textDecoration: "none"}}>
+                  <NavbarBrand>To-Do List</NavbarBrand>
+                </Link>
                 <NavbarToggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="me-auto">

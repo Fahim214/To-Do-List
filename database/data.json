@@ -15,11 +15,11 @@
       "image": "https://makassar.terkini.id/wp-content/uploads/2019/12/Rapat-Koordinasi-Terkait-Pelayanan-Kelurahan-Dipimpin-Camat-Tallo.png"
     },
     {
-      "id": 3,
-      "agenda": "Melaksanakan Program Desa Tahunan",
+      "agenda": "Melaksanakan Program Desa Tahunan dan Bulanan",
       "bulan": "Maret",
       "detail": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
-      "image": "https://www.ngopibareng.id/images/uploads/2021/2021-04-19/program-bunga-desa-tuntaskan-hampir-10-000-permasalahan-warga"
+      "image": "https://www.ngopibareng.id/images/uploads/2021/2021-04-19/program-bunga-desa-tuntaskan-hampir-10-000-permasalahan-warga",
+      "id": 3
     },
     {
       "id": 4,
