@@ -33,7 +33,7 @@ const NavbarComp = () => {
             <Navbar
               fixed="top"
               expand="lg"
-              className={navbar ? "navv text-white" : "bg-transparent"}
+              className={navbar ? "navv" : "bg-transparent"}
             >
               <Container>
                 <Link to="/" style={{textDecoration: "none"}}>
