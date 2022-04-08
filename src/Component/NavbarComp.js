@@ -38,8 +38,8 @@ const NavbarComp = () => {
                     <LinkContainer to="/">
                       <Nav.Link>Home</Nav.Link>
                     </LinkContainer>
-                    <LinkContainer to="/detail">
-                      <Nav.Link>Detail</Nav.Link>
+                    <LinkContainer to="/add-agenda">
+                      <Nav.Link>Add Agenda</Nav.Link>
                     </LinkContainer>
                   </Nav>
                 </Navbar.Collapse>

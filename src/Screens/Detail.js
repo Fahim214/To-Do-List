@@ -21,6 +21,15 @@ const Detail = () => {
   useEffect(() => {
     getDetailProduct()
   }, [])
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3001/agenda/${id}`)
+      getDetailProduct()
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div>
       <Container fluid style={{ width: "50%", margin: "150px auto" }}>
@@ -41,7 +50,7 @@ const Detail = () => {
                   {data.detail}
                 </Card.Text>
                 <Button style={{ marginRight: 20}} variant="primary">Edit</Button>
-                <Button variant="danger">Delete</Button>
+                <Button variant="danger" onClick={() => handleDelete(data.id)}>Delete</Button>
               </Card.Body>
             </Card>
           </Col>
