@@ -58,7 +58,7 @@ const Home = () => {
                 <tr style={{ textAlign: "center" }}>
                   <th>No. </th>
                   <th>Agenda</th>
-                  <th>Tanggal</th>
+                  <th>Bulan</th>
                   <th>Action</th>
                 </tr>
               </thead>
